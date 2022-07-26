@@ -12,21 +12,16 @@ const test = {
 
 }
 
-console.log(test);
-
 beforeEach(async () => {
 
 });
-describe("testPerTeachers", () => {
+describe("Recommendation", () => {
     it("when creating a new recommendation it should return 200", async () => {
 
-        const result = await supertest(app).post("/recomendations").send(test);
-        console.log(result.error);
-        
-        
+        const result = await supertest(app).post("/recommendations").send(test);
         const status = result.status;
 
-        expect(status).toEqual(200);
+        expect(status).toEqual(201);
     }
 );
 
