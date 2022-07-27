@@ -6,7 +6,7 @@ export async function createRecommendation(){
 
     const recommendation: CreateRecommendationData = {
 
-        name: faker.music.songName(),
+        name: faker.music.songName() + faker.random.alphaNumeric(),
         youtubeLink: `www.youtube.com/${faker.random.alpha()}`
     
     }
