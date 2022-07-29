@@ -14,7 +14,7 @@ beforeEach(async () => {
 
 describe("Recommendation", () => {
 
-    it("when creating a new recommendation it should return 200", async () => {
+    it("should answer with status 200 when creating a new recommendation", async () => {
         const recommendation = {
 
             name: faker.music.songName(),

@@ -36,6 +36,7 @@ export default function Home() {
         recommendations.map(recommendation => (
           <Recommendation
             key={recommendation.id}
+            id = {recommendation.id}
             {...recommendation}
             onUpvote={() => listRecommendations()}
             onDownvote={() => listRecommendations()}
