@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import useRecommendation from "../../../hooks/api/useRecommendation";
 
 import Recommendation from "../../../components/Recommendation";

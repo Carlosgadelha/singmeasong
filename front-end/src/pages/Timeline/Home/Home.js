@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { useEffect } from "react";
 
 import useRecommendations from "../../../hooks/api/useRecommendations";
@@ -21,6 +22,7 @@ export default function Home() {
 
   useEffect(() => {
     if (creatingRecommendationError) {
+      // eslint-disable-next-line no-alert
       alert("Error creating recommendation!");
     }
   }, [creatingRecommendationError]);

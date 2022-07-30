@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-filename-extension */
+
 import styled from 'styled-components';
 import {useNavigate} from 'react-router-dom';
 

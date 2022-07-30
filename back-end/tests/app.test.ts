@@ -7,7 +7,6 @@ import { faker } from "@faker-js/faker";
 
 const agent = supertest(app);
 
-
 beforeEach(async () => {
     await deleteAll();
 });

@@ -5,7 +5,9 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "plugin:cypress/recommended"
+        "plugin:cypress/recommended",
+        "airbnb",
+        "prettier"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -18,5 +20,15 @@
         "react"
     ],
     "rules": {
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-filename-extension": [
+            "error",
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ]
     }
 }
