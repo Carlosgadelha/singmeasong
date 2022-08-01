@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { faker } from "@faker-js/faker";
 // / <reference types="cypress" />
 
@@ -23,32 +24,31 @@ describe('Recommendation', () => {
 
   });
 
-  // it('should upvote recommendation successfully', () => {
+  it('should upvote recommendation successfully', () => {
       
-  //     cy.visit('http://localhost:3000');
-  //     const name = faker.music.songName() + faker.random.alphaNumeric()
-  //     const youtubeLink = 'https://youtu.be/nn60EqUW8Jg'
+      cy.visit('http://localhost:3000');
+      const name = faker.music.songName() + faker.random.alphaNumeric()
+      const youtubeLink = 'https://youtu.be/nn60EqUW8Jg'
 
-  //     cy.intercept('GET','/recommendations').as('getRecommendation');
-  //     cy.intercept('POST','/recommendations').as('postRecommendation');
-  //     cy.intercept('POST','**/upvote').as('upvoteRecommendation');
+      cy.intercept('GET','/recommendations').as('getRecommendation');
+      cy.intercept('POST','/recommendations').as('postRecommendation');
+      cy.intercept('POST','**/upvote').as('upvoteRecommendation');
 
-  //     cy.get('#name').type(name);
-  //     cy.get('#youtubeLink').type(youtubeLink);
-  //     cy.get('#newRecommendation').click();
+      cy.get('#name').type(name);
+      cy.get('#youtubeLink').type(youtubeLink);
+      cy.get('#newRecommendation').click();
 
       
-  //     cy.wait('@postRecommendation');
-  //     cy.wait('@getRecommendation');
+      cy.wait('@postRecommendation');
+      cy.request('GET', 'http://localhost:5000/recommendations')
+      cy.wait('@getRecommendation');
   
-  //     cy.get('#upvote').click();
-  //     cy.wait('@upvoteRecommendation');
+      cy.get('.recommendations article #upvote').first().click();
+      cy.wait('@upvoteRecommendation');
 
-  //     cy.request('GET', 'http://localhost:5000/recommendations').should((response) => {
-  //       expect(response.body[0].score).to.equal(1);
-  //     })
+      cy.get('.recommendations article #score').first().should('have.text', ' 1');
   
-  // });
+  });
 
   it('should downvote recommendation successfully', () => {
       
@@ -65,19 +65,15 @@ describe('Recommendation', () => {
     cy.get('#newRecommendation').click();
 
     
-    //cy.wait('@postRecommendation');
+    cy.wait('@postRecommendation');
+    cy.request('GET', 'http://localhost:5000/recommendations')
     cy.wait('@getRecommendation');
 
-    cy.get('#upvote').click();
-    cy.wait('@upvoteRecommendation');
-    cy.get('#upvote').click();
-    cy.wait('@upvoteRecommendation');
-    cy.get('#downvote').click();
+    cy.get('.recommendations article #downvote').first().click();
     cy.wait('@downvoteRecommendation');
 
-    cy.request('GET', 'http://localhost:5000/recommendations').should((response) => {
-      expect(response.body[0].score).to.equal(1);
-    })
+
+    cy.get('.recommendations article #score').first().should('have.text', ' -1');
 
   });
 });

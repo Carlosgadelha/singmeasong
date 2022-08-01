@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-alert */
 import styled from "styled-components";
 import { useEffect } from "react";
 
@@ -40,7 +42,7 @@ export default function Recommendation({ name, youtubeLink, score, id, onUpvote 
       <ReactPlayer url={youtubeLink} width="100%" height="100%" />
       <Row>
         <GoArrowUp id="upvote" size="24px" onClick={handleUpvote} />
-        {score}
+          <div id="score"> {score}</div>
         <GoArrowDown id="downvote" size="24px" onClick={handleDownvote} />
       </Row>
     </Container>

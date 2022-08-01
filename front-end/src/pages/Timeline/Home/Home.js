@@ -34,23 +34,26 @@ export default function Home() {
   return (
     <>
       <CreateNewRecommendation disabled={loadingCreatingRecommendation} onCreateNewRecommendation={handleCreateRecommendation} />
-      {
-        recommendations.map(recommendation => (
-          <Recommendation
-            key={recommendation.id}
-            id = {recommendation.id}
-            {...recommendation}
-            onUpvote={() => listRecommendations()}
-            onDownvote={() => listRecommendations()}
-          />
-        ))
-      }
+        <div className="recommendations">
+          {
+            recommendations.map(recommendation => (
+              <Recommendation
+                className="recommendation"
+                key={recommendation.id}
+                id = {recommendation.id}
+                {...recommendation}
+                onUpvote={() => listRecommendations()}
+                onDownvote={() => listRecommendations()}
+              />
+            ))
+          }
 
-      {
-        recommendations.length === 0 && (
-          <div>No recommendations yet! Create your own :)</div>
-        )
-      }
+          {
+            recommendations.length === 0 && (
+              <div>No recommendations yet! Create your own :)</div>
+            )
+          }
+      </div>
     </>
   )
 }
