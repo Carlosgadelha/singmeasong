@@ -8,7 +8,9 @@ export default function Timeline() {
     <>
       <Header />
       <Menu />
-      <Outlet />
+      <div className="recommendations">
+        <Outlet />
+      </div>
     </>
   );
 }

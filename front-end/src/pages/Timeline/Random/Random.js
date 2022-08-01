@@ -15,10 +15,13 @@ export default function Random() {
   }
 
   return (
-    <Recommendation
-      {...recommendation}
-      onUpvote={handleUpdate}
-      onDownvote={handleUpdate}
-    />
+    <div className="recommendations">
+      <Recommendation
+        {...recommendation}
+        onUpvote={handleUpdate}
+        onDownvote={handleUpdate}
+      />
+    </div>
+    
   );
 }

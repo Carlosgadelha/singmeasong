@@ -72,8 +72,34 @@ describe('Recommendation', () => {
     cy.get('.recommendations article #downvote').first().click();
     cy.wait('@downvoteRecommendation');
 
-
     cy.get('.recommendations article #score').first().should('have.text', ' -1');
 
   });
+
+
+  it('should return a list of recommendations when clicking top', () => {
+    let length = 0;
+    cy.get('.recommendations article').then((recommendations) => {
+        length = recommendations.length;
+    })
+
+    cy.get('#top').click();
+    cy.get('.recommendations article').then((recommendations) => {
+
+      if (length >= 10) expect(recommendations).to.have.length(10);
+      else expect(recommendations).to.have.length(length);
+      
+    })
+  });
+
+  it('should return a recommendation when clicking random', () => {
+    cy.get('#random').click();
+    cy.get('.recommendations article').should('have.length', 1);
+  });
+
+  it('should return to home click on home', () => {
+    cy.get('#home').click();
+    cy.url().should('eq', 'http://localhost:3000/');
+  })
+
 });
