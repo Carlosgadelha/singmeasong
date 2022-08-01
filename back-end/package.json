@@ -10,7 +10,6 @@
     "start": "node dist/server",
     "dev": "nodemon src/server.ts",
     "test:unit": "dotenv -e .env.test cross-env NODE_OPTIONS=--experimental-vm-modules jest -- -i --coverage --testPathPattern=tests/unit"
-  
   },
   "keywords": [],
   "author": "",
@@ -24,6 +23,9 @@
     "@types/joi": "^17.2.3",
     "@types/node": "^16.3.3",
     "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "eslint-config-prettier": "^8.5.0",
     "cross-env": "^7.0.3",
     "dotenv-cli": "^5.1.0",
     "eslint": "^7.32.0",
